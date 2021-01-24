@@ -1,3 +1,6 @@
+import MySQLdb
+from Tkinter import *
+from PIL import Image
 import mysql.connector
 try:
 	db=mysql.connector.connect(host='localhost',user='root',password='root',database='dbms')
@@ -5,6 +8,14 @@ try:
 	print ("Database was connected successfully")
 except:
 	print ("Error")
+	
+cursor=db.cursor()
+root = Tk()
+image1=PhotoImage(file="/home/ritub/Downloads/bg.png")
+panel=Label(root,image=image1,bg="black").place(x=0,y=0,relwidth=1,relheight=1)
+root.title("BLOOD BANK")
+root.geometry("1920x1080")
+root.configure(background='white')
 
 while(1):
         ch1 = input("Do you want to continue<y/n> : ")
